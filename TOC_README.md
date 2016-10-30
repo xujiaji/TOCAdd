@@ -34,4 +34,3 @@ jiana@jiana-pc ~/workspace/android/TOCAdd $
 
 ```
 
-[Look TOC_README.md](TOC_README.md)
