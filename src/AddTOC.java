@@ -67,8 +67,7 @@ public class AddTOC {
 			toc.append("\n\n");
 			toc.append(sb.toString());
 //			System.out.println(toc.toString());
-			
-			String tocFile = file.getParentFile() == null ? "TOC_" + file.getName() : file.getParentFile().getAbsolutePath() + "TOC_" + file.getName();
+			String tocFile = file.getParentFile() == null ? "TOC_" + file.getName() : file.getParentFile().getAbsolutePath() + File.separator + "TOC_" + file.getName();
 			ps = new PrintStream(new FileOutputStream(tocFile));  
 			ps.print(toc.toString());
 			System.out.println("\n\nSuccess add TOC\n\nLook at the \"" + tocFile + "\" file\n\n");
