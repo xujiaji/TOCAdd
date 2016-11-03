@@ -8,7 +8,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.io.Reader;
-import java.net.URLEncoder;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -28,6 +27,7 @@ public class AddTOC {
 		Reader isr = null;
 		BufferedReader br = null;
 		PrintStream ps = null;
+		int titleNum = 0;
 		try {
 			in = new FileInputStream(file);
 			isr = new InputStreamReader(in);
@@ -44,7 +44,7 @@ public class AddTOC {
 //					line = line.trim();
 					Pattern p = Pattern.compile("(\\s*)[#]+(\\s*)");
 					Matcher m = p.matcher(line);
-					String maodian = null;
+					String maodian = "title";
 					while(m.find()) {
 						String title = line.substring(m.group().length());
 						String dian = "*";
@@ -54,7 +54,7 @@ public class AddTOC {
 							}
 						}
 						dian += " ";
-						maodian = URLEncoder.encode(title);
+						maodian += titleNum++;
 						toc.append(dian + "[" + title + "](#" + maodian + ")\n");
 						break;
 					}
